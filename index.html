@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>박두환 투자클럽 - 오늘 남은 무료 진단 인원</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- 深蓝色头部区域 -->
+        <div style="background: linear-gradient(180deg, #1e3a5f 0%, #2d5a87 50%, #5a7fb5 100%); padding: 30px 20px 25px; text-align: center;">
+            
+            <!-- 1. 人物头像 + 认证 -->
+            <div style="margin-bottom: 15px;">
+                <div style="position: relative; display: inline-block;">
+                    <img src="static/picture/tghr.jpg" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #FEE500; object-fit: cover;">
+                    <span style="position: absolute; bottom: 0px; right: 0px; background: #4CAF50; color: white; padding: 2px 8px; border-radius: 8px; font-size: 9px; font-weight: 700; border: 2px solid #1e3a5f;">✓ 인증</span>
+                </div>
+                <h1 style="color: white; font-size: 20px; margin: 10px 0 6px; font-weight: 700;">박두환</h1>
+                <span style="display: inline-block; background: rgba(254,229,0,0.2); color: #FEE500; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 700; border: 1px solid rgba(254,229,0,0.4);">📊 인증된 투자 전문가</span>
+            </div>
+            
+            <!-- 2. 社会证明 -->
+            <div style="background: rgba(0,0,0,0.4); border-radius: 8px; padding: 12px; margin: 15px 0; display: flex; justify-content: space-around; align-items: center; border: 1px solid rgba(254,229,0,0.3);">
+                <div style="text-align: center; padding: 0 10px; flex: 1;">
+                    <span style="display: block; font-size: 20px; font-weight: 900; color: #FEE500; letter-spacing: -0.5px;">63,000+</span>
+                    <span style="display: block; font-size: 10px; color: rgba(255,255,255,0.9); margin-top: 3px; font-weight: 500;">채널 회원</span>
+                </div>
+                <div style="text-align: center; padding: 0 10px; flex: 1; border-left: 1px solid rgba(255,255,255,0.25);">
+                    <span style="display: block; font-size: 20px; font-weight: 900; color: #FEE500; letter-spacing: -0.5px;">85%</span>
+                    <span style="display: block; font-size: 10px; color: rgba(255,255,255,0.9); margin-top: 3px; font-weight: 500;">적중률</span>
+                </div>
+                <div style="text-align: center; padding: 0 10px; flex: 1; border-left: 1px solid rgba(255,255,255,0.25);">
+                    <span style="display: block; font-size: 20px; font-weight: 900; color: #FEE500; letter-spacing: -0.5px;">317%</span>
+                    <span style="display: block; font-size: 10px; color: rgba(255,255,255,0.9); margin-top: 3px; font-weight: 500;">최근 수익</span>
+                </div>
+            </div>
+            
+            <!-- 3. 在线人数 -->
+            <div style="background: rgba(255,255,255,0.1); padding: 6px 12px; border-radius: 15px; text-align: center; margin: 10px 0; font-size: 12px; display: inline-block;">
+                <span style="display: inline-block; width: 6px; height: 6px; background: #ff4444; border-radius: 50%; margin-right: 5px; animation: blink 1.5s ease-in-out infinite;"></span>
+                현재 <strong style="color: #FEE500;">156 명</strong> 온라인
+            </div>
+            
+            <!-- 4. 紧迫感横幅 -->
+            <div style="background: linear-gradient(135deg, #ff4444, #ff6b6b); color: white; padding: 8px 12px; border-radius: 15px; text-align: center; font-size: 12px; font-weight: 600; margin: 10px 0;">
+                🔥 오늘 남은 무료 진단 인원：<strong>23/50</strong>
+            </div>
+            
+            <!-- 5. CTA 按钮 -->
+            <div style="margin: 15px 0 10px;">
+                <button onclick="cilck()" style="background: linear-gradient(135deg, #FEE500, #ffd600); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; max-width: 280px; box-shadow: 0 3px 10px rgba(254,229,0,0.4);">
+                    💬 카카오톡+777 추가 후 전송 ➡️ 최신 소식 확인
+                </button>
+                <p style="color: rgba(255,255,255,0.7); font-size: 10px; margin-top: 6px;">👆 클릭 후 바로 정보 확인 가능</p>
+            </div>
+        </div>
+        
+        <!-- 白色内容区域 -->
+        <div style="background: white; padding: 25px 20px;">
+            
+            <!-- 6. 福利列表 -->
+            <div style="background: #f0f7ff; border: 2px solid #2d5a87; border-radius: 12px; padding: 18px; margin: 15px 0;">
+                <h3 style="color: #1a3a5f; font-size: 14px; margin: 0 0 12px 0; text-align: center; font-weight: 700;">
+                    📋 채널에서 제공하는 무료 혜택
+                </h3>
+                <div style="background: white; border-radius: 8px; padding: 12px;">
+                    <div style="display: flex; align-items: flex-start; gap: 8px; margin: 10px 0;">
+                        <span style="color: #4CAF50; font-size: 16px; font-weight: 700;">✔</span>
+                        <span style="color: #333; font-size: 13px; line-height: 1.4;"><strong>매일 3개</strong> 강세 종목 브리핑 (승률 85%+)</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; margin: 10px 0;">
+                        <span style="color: #4CAF50; font-size: 16px; font-weight: 700;">✔</span>
+                        <span style="color: #333; font-size: 13px; line-height: 1.4;"><strong>보유 종목</strong> 무료 간단 진단 (선착순)</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; margin: 10px 0;">
+                        <span style="color: #4CAF50; font-size: 16px; font-weight: 700;">✔</span>
+                        <span style="color: #333; font-size: 13px; line-height: 1.4;"><strong>하루 1회</strong> 매매 전략 & 종목 선정 팁 공유</span>
+                    </div>
+                    <div style="display: flex; align-items: flex-start; gap: 8px; margin: 10px 0;">
+                        <span style="color: #4CAF50; font-size: 16px; font-weight: 700;">✔</span>
+                        <span style="color: #333; font-size: 13px; line-height: 1.4;"><strong>실시간</strong> 시황 및 테마 실시간 체크</span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 12px; margin-top: 12px;">
+                    이미 많은 분들이 채널에서 정보를 받아보고 있습니다.<br>
+                    <strong style="color: #2d5a87;">선착순으로 안내되니, 늦기 전에 참여하세요!</strong>
+                </p>
+            </div>
+            
+            <!-- 7. Checkbox 选择 -->
+            <div style="margin: 20px 0;">
+                <h3 style="color: #1a3a5f; font-size: 14px; margin: 0 0 12px 0; text-align: center; font-weight: 700;">
+                    📝 원하는 정보 선택
+                </h3>
+                <div class="checkbox-group" id="checkboxGroup" style="background: #f8f9fa; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px;">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; margin: 6px 0; background: white; border-radius: 8px; border: 1px solid #e0e0e0;">
+                        <input type="checkbox" id="option1" name="options" value="今日关注强势品种" checked style="width: 18px; height: 18px; accent-color: #2d5a87;">
+                        <span style="background: #2d5a87; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0;">1</span>
+                        <label for="option1" style="flex: 1; font-size: 13px; color: #333; margin: 0;">오늘 주목 강세 종목 받기</label>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; margin: 6px 0; background: white; border-radius: 8px; border: 1px solid #e0e0e0;">
+                        <input type="checkbox" id="option2" name="options" value="确认低估的潜力股票" checked style="width: 18px; height: 18px; accent-color: #2d5a87;">
+                        <span style="background: #2d5a87; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0;">2</span>
+                        <label for="option2" style="flex: 1; font-size: 13px; color: #333; margin: 0;">저평가 유망 종목 확인</label>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; margin: 6px 0; background: white; border-radius: 8px; border: 1px solid #e0e0e0;">
+                        <input type="checkbox" id="option3" name="options" value="学习严实交易策略" checked style="width: 18px; height: 18px; accent-color: #2d5a87;">
+                        <span style="background: #2d5a87; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0;">3</span>
+                        <label for="option3" style="flex: 1; font-size: 13px; color: #333; margin: 0;">실전 매매 전략 배우기</label>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 10px; margin: 6px 0; background: white; border-radius: 8px; border: 1px solid #e0e0e0;">
+                        <input type="checkbox" id="option4" name="options" value="免费诊断" checked style="width: 18px; height: 18px; accent-color: #2d5a87;">
+                        <span style="background: #2d5a87; color: white; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0;">4</span>
+                        <label for="option4" style="flex: 1; font-size: 13px; color: #333; margin: 0;">내 종목 무료 진단 받기</label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 8. CTA 按钮（中部） -->
+            <div style="text-align: center; margin: 20px 0;">
+                <button onclick="cilck()" style="background: linear-gradient(135deg, #FEE500, #ffd600); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; max-width: 280px; box-shadow: 0 3px 10px rgba(254,229,0,0.4);">
+                    🚀 카카오톡+777 추가 후 전송 ➡️ 최신 소식 확인
+                </button>
+            </div>
+            
+            <!-- 9. 用户评价 -->
+            <div style="margin: 20px 0;">
+                <h3 style="color: #1a3a5f; font-size: 14px; margin: 0 0 12px 0; text-align: center; font-weight: 700;">
+                    ⭐ 회원들의 생생한 후기
+                </h3>
+                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; margin: 8px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                    <p style="color: #333; font-size: 13px; line-height: 1.4; margin: 0 0 6px 0; font-style: italic;">
+                        💰 "추천받은 종목으로 3일 만에 28% 수익 냈습니다! 정말 감사합니다!"
+                    </p>
+                    <p style="color: #666; font-size: 11px; margin: 0; font-weight: 600;">- 김** 님 (42세, 직장인)</p>
+                </div>
+                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; margin: 8px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                    <p style="color: #333; font-size: 13px; line-height: 1.4; margin: 0 0 6px 0; font-style: italic;">
+                        📚 "주식 초보였는데 매일 브리핑 덕분에 점점 실력이 늘어요"
+                    </p>
+                    <p style="color: #666; font-size: 11px; margin: 0; font-weight: 600;">- 이** 님 (35세, 주부)</p>
+                </div>
+                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 10px; padding: 12px; margin: 8px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                    <p style="color: #333; font-size: 13px; line-height: 1.4; margin: 0 0 6px 0; font-style: italic;">
+                        🎯 "무료인데 이 정도 정보를 주다니... 유료 부럽지 않습니다"
+                    </p>
+                    <p style="color: #666; font-size: 11px; margin: 0; font-weight: 600;">- 박** 님 (51세, 자영업)</p>
+                </div>
+            </div>
+            
+            <!-- 10. 特别优惠区域 -->
+            <div style="background: linear-gradient(135deg, #fff9e6, #fff3cd); border: 2px solid #FEE500; border-radius: 12px; padding: 18px; margin: 20px 0;">
+                <h3 style="color: #1a3a5f; font-size: 14px; margin: 0 0 12px 0; text-align: center; font-weight: 700;">
+                    🎁 지금 가입하면 특별 혜택!
+                </h3>
+                <div style="background: linear-gradient(135deg, #ff4444, #ff6b6b); color: white; padding: 8px 12px; border-radius: 15px; text-align: center; font-size: 12px; font-weight: 600; margin: 12px 0;">
+                    ⏰ 오늘 남은 무료 진단 인원：<strong style="background: white; color: #ff4444; padding: 2px 8px; border-radius: 15px;">23/50</strong>
+                </div>
+                <div style="text-align: center; margin: 15px 0;">
+                    <button onclick="cilck()" style="background: linear-gradient(135deg, #FEE500, #ffd600); color: #000; border: none; padding: 12px 24px; border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; max-width: 280px; box-shadow: 0 3px 10px rgba(254,229,0,0.4);">
+                        💬 카카오톡+777 추가 후 전송 ➡️ 최신 소식 확인
+                    </button>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 11px; margin: 8px 0 0 0;">
+                    👉 참여 후 바로 정보 확인 가능합니다
+                </p>
+                
+                <!-- 信任保证 -->
+                <div style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9); border: 2px solid #4caf50; border-radius: 10px; padding: 12px; margin: 15px 0; text-align: center;">
+                    <span style="font-size: 24px; display: block; margin-bottom: 6px;">🔒</span>
+                    <p style="margin: 0; font-weight: 600; color: #2e7d32; font-size: 12px;">
+                        100% 무료 · 개인정보 안전 · 언제든 탈퇴 가능
+                    </p>
+                </div>
+            </div>
+            
+            <!-- 11. 免责声明 -->
+            <div style="background: #fff9e6; border: 1px solid #ffc107; border-radius: 10px; padding: 12px; margin: 15px 0; font-size: 11px; line-height: 1.6;">
+                <p style="margin: 6px 0; color: #333;">⚠️ 버튼 클릭 시 KakaoTalk 채널로 이동합니다.</p>
+                <p style="margin: 6px 0; color: #333;">⚠️ 모든 정보는 무료로 제공됩니다.</p>
+                <p style="margin: 6px 0; color: #333;">⚠️ 본 자료는 투자 참고용 정보입니다.</p>
+                <p style="margin: 6px 0; color: #333;">⚠️ 최종 투자 판단의 책임은 본인에게 있습니다.</p>
+                <p style="margin: 6px 0; color: #d32f2f; font-weight: 600;">⚠️ 사기 주의: 유료 그룹 가입을 요구하는 모든 것은 사기입니다.</p>
+            </div>
+            
+            <!-- 12. 底部版权信息 -->
+            <div style="text-align: center; color: #999; font-size: 10px; padding: 15px 0; border-top: 1px solid #eee; margin-top: 15px;">
+                <p style="margin: 4px 0;">© 2026 박두환 투자클럽. All rights reserved.</p>
+                <p style="margin: 4px 0;">본 페이지는 투자 권유가 아닌 정보 제공을 목적으로 합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let errorTimer = null;
+        const checkboxes = document.querySelectorAll('input[name="options"]');
+        const checkboxGroup = document.getElementById("checkboxGroup");
+
+        function cilck() {
+            const checkedOptions = document.querySelectorAll('input[name="options"]:checked');
+            clearErrorState();
+            if (checkedOptions.length === 0) {
+                checkboxGroup.classList.remove("group-shake");
+                void checkboxGroup.offsetWidth;
+                checkboxGroup.classList.add("group-shake");
+                checkboxes.forEach((checkbox) => {
+                    checkbox.classList.remove("checkbox-blink");
+                    void checkbox.offsetWidth;
+                    checkbox.classList.add("checkbox-blink");
+                });
+                errorTimer = setTimeout(clearErrorState, 1500);
+            }
+            const selectedValues = Array.from(checkedOptions).map((checkbox) => checkbox.value).join(",");
+            if (selectedValues) {
+                if (typeof gotoUrl === 'function') { gotoUrl(""); } else { console.log('click') }
+            }
+        }
+
+        function clearErrorState() {
+            if (errorTimer) { clearTimeout(errorTimer); errorTimer = null; }
+            checkboxGroup.classList.remove("group-shake");
+            var formData = []
+            checkboxes.forEach((checkbox) => {
+                checkbox.classList.remove("checkbox-blink");
+                if (checkbox.checked) { formData.push(checkbox.value); }
+            });
+            if (typeof setFormData === 'function') { setFormData(formData) }
+        }
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", clearErrorState);
+        });
+    </script>
+</body>
+</html>

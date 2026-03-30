@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoveMe - 오늘 밤 특별한 만남</title>
+    <title>LoveMe - 100% 무료 데이트</title>
     <style>
         @keyframes floatUp { 
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
@@ -12,200 +12,306 @@
         }
         @keyframes pulse { 
             0%, 100% { transform: scale(1); } 
-            50% { transform: scale(1.05); } 
+            50% { transform: scale(1.08); } 
         }
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 71, 126, 0.5); }
-            50% { box-shadow: 0 0 40px rgba(255, 71, 126, 0.8); }
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 214, 0, 0.6), 0 0 40px rgba(255, 107, 157, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(255, 214, 0, 0.9), 0 0 80px rgba(255, 107, 157, 0.7); }
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.15); }
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
-            background: linear-gradient(180deg, #0a0610 0%, #1a0f2e 100%);
+            background: linear-gradient(180deg, #1a237e 0%, #283593 30%, #3949ab 70%, #5c6bc0 100%);
             min-height: 100vh;
             color: #fff;
+            overflow-x: hidden;
         }
         .heart {
             position: fixed;
-            font-size: 20px;
+            font-size: 24px;
             animation: floatUp linear forwards;
             pointer-events: none;
             z-index: 0;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
         }
         .container {
             max-width: 480px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
+            padding-bottom: 80px;
         }
         .header {
-            background: linear-gradient(180deg, #1e3a5f 0%, #2d5a87 50%, #5a7fb5 100%);
-            padding: 30px 20px 25px;
+            background: transparent;
+            padding: 40px 20px 30px;
             text-align: center;
         }
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
         .profile-img {
-            width: 80px;
-            height: 80px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            border: 3px solid #FEE500;
+            border: 4px solid #FEE500;
             object-fit: cover;
+            box-shadow: 0 0 30px rgba(255, 229, 0, 0.5), 0 0 60px rgba(255, 107, 157, 0.4);
+            animation: pulse 3s infinite;
+            cursor: pointer;
         }
         .verified-badge {
             position: absolute;
-            bottom: 0px;
-            right: 0px;
-            background: #4CAF50;
+            bottom: 5px;
+            right: 5px;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
             color: white;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 9px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
             font-weight: 700;
-            border: 2px solid #1e3a5f;
+            border: 2px solid #1a237e;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+        }
+        .site-title {
+            color: #FEE500;
+            font-size: 28px;
+            font-weight: 900;
+            margin: 15px 0 8px;
+            text-shadow: 0 0 20px rgba(255, 229, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+        .site-tagline {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255, 229, 0, 0.2) 0%, rgba(255, 107, 157, 0.2) 100%);
+            color: #FEE500;
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 229, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 229, 0, 0.3);
         }
         .stats-box {
-            background: rgba(0,0,0,0.4);
-            border-radius: 8px;
-            padding: 12px;
-            margin: 15px 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(26, 35, 126, 0.8) 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            border: 1px solid rgba(254,229,0,0.3);
+            border: 1px solid rgba(255, 229, 0, 0.4);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(255, 229, 0, 0.1);
         }
-        .stat-item { text-align: center; padding: 0 10px; flex: 1; }
+        .stat-item { text-align: center; padding: 0 12px; flex: 1; }
         .stat-number { 
             display: block; 
-            font-size: 20px; 
+            font-size: 24px; 
             font-weight: 900; 
             color: #FEE500; 
-            letter-spacing: -0.5px; 
+            letter-spacing: -0.5px;
+            text-shadow: 0 0 15px rgba(255, 229, 0, 0.5);
         }
         .stat-label { 
             display: block; 
-            font-size: 10px; 
-            color: rgba(255,255,255,0.9); 
-            margin-top: 3px; 
-            font-weight: 500; 
+            font-size: 11px; 
+            color: rgba(255, 255, 255, 0.9); 
+            margin-top: 5px; 
+            font-weight: 500;
         }
         .section {
-            background: white;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
             color: #333;
             padding: 25px 20px;
-            margin: 15px 0;
+            margin: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
         }
         .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #1e3a5f;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 18px;
+            background: linear-gradient(135deg, #ff6b9d 0%, #ff2d55 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         .feature-list {
             list-style: none;
         }
         .feature-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            font-size: 15px;
         }
         .feature-list li:last-child { border-bottom: none; }
         .check-icon {
             color: #4CAF50;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 18px;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
         }
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
-            padding: 20px;
+            padding: 0;
         }
         .gallery-card {
             position: relative;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             aspect-ratio: 3/4;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
         }
         .gallery-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            transition: transform 0.5s ease;
         }
         .gallery-card:hover img {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         .gallery-info {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 15px 10px 10px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            padding: 18px 12px 12px;
             color: white;
         }
         .gallery-name {
-            font-size: 14px;
-            font-weight: 700;
-        }
-        .gallery-meta {
-            font-size: 11px;
-            color: rgba(255,255,255,0.8);
-            margin-top: 3px;
-        }
-        .cta-section {
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff2d55 100%);
-            padding: 30px 20px;
-            text-align: center;
-            animation: pulse 2s infinite;
-        }
-        .cta-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .cta-subtitle {
-            font-size: 14px;
-            margin-bottom: 20px;
-            opacity: 0.95;
-        }
-        .cta-button {
-            background: #FEE500;
-            color: #1e3a5f;
-            border: none;
-            padding: 16px 40px;
-            border-radius: 50px;
             font-size: 16px;
             font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .gallery-meta {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 4px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff8cda 100%);
+            padding: 35px 25px;
+            text-align: center;
+            margin: 25px 20px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 229, 0, 0.2) 0%, transparent 70%);
+            animation: pulse 4s infinite;
+        }
+        .cta-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #fff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .cta-subtitle {
+            font-size: 15px;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+        }
+        .countdown {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 18px;
+            margin: 25px 0;
+            text-align: center;
+            border: 2px solid rgba(255, 229, 0, 0.5);
+            position: relative;
+        }
+        .countdown-number {
+            font-size: 42px;
+            font-weight: 900;
+            color: #FEE500;
+            text-shadow: 0 0 30px rgba(255, 229, 0, 0.8);
+            animation: heartbeat 2s infinite;
+        }
+        .countdown-label {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #FEE500 0%, #ffeb3b 100%);
+            color: #1a237e;
+            border: none;
+            padding: 20px 45px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 800;
             cursor: pointer;
             animation: glow 2s infinite;
             display: inline-block;
             text-decoration: none;
+            box-shadow: 0 10px 40px rgba(255, 229, 0, 0.5);
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .countdown {
-            background: rgba(0,0,0,0.3);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .countdown-number {
-            font-size: 32px;
-            font-weight: 900;
-            color: #FEE500;
-        }
-        .countdown-label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.8);
-            margin-top: 5px;
+        .cta-button:hover {
+            transform: scale(1.08);
         }
         .footer {
-            background: #0a0610;
-            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 25px 20px;
             text-align: center;
             font-size: 11px;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 30px;
+        }
+        .online-count {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.3) 0%, rgba(102, 187, 106, 0.3) 100%);
+            border-radius: 25px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 15px 0;
+            border: 1px solid rgba(76, 175, 80, 0.5);
+            font-size: 13px;
+            color: #81C784;
+            font-weight: 600;
+        }
+        .free-badge {
+            background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            display: inline-block;
+            margin-left: 8px;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.5);
         }
     </style>
 </head>
@@ -215,100 +321,109 @@
     <div class="container">
         <!-- 头部区域 -->
         <div class="header">
-            <div style="position: relative; display: inline-block;">
-                <img src="assets/images/girl1.jpg" class="profile-img" alt="Profile">
+            <div class="profile-container">
+                <img src="assets/images/GdMd2QNaoAEu4BC.jpg" class="profile-img" alt="Profile" onclick="window.location.href='https://open.kakao.com/o/sample'">
                 <span class="verified-badge">✓ 인증</span>
             </div>
-            <h1 style="color: white; font-size: 20px; margin: 10px 0 6px; font-weight: 700;">LoveMe</h1>
-            <span style="display: inline-block; background: rgba(254,229,0,0.2); color: #FEE500; padding: 4px 12px; border-radius: 12px; font-size: 10px; font-weight: 700; border: 1px solid rgba(254,229,0,0.4);">💕 프리미엄 데이트 커뮤니티</span>
+            <h1 class="site-title">LoveMe</h1>
+            <span class="site-tagline">💕 100% 무료 프리미엄 데이트</span>
+            
+            <div class="online-count">
+                🔥 현재 <strong>156 명</strong> 온라인
+            </div>
             
             <div class="stats-box">
                 <div class="stat-item">
                     <span class="stat-number">50,000+</span>
-                    <span class="stat-label">활성 회원</span>
+                    <span class="stat-label">무료 회원</span>
                 </div>
-                <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.25);">
+                <div class="stat-item" style="border-left: 1px solid rgba(255, 255, 255, 0.25);">
                     <span class="stat-number">89%</span>
-                    <span class="stat-label">매칭 성공률</span>
+                    <span class="stat-label">무료 매칭률</span>
                 </div>
-                <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.25);">
+                <div class="stat-item" style="border-left: 1px solid rgba(255, 255, 255, 0.25);">
                     <span class="stat-number">4.9</span>
-                    <span class="stat-label">평점</span>
+                    <span class="stat-label">무료 평점</span>
                 </div>
             </div>
         </div>
 
         <!-- 特色服务 -->
         <div class="section">
-            <h2 class="section-title">🔥 오늘의 특별 서비스</h2>
+            <h2 class="section-title">🔥 100% 무료 특별 서비스</h2>
             <ul class="feature-list">
                 <li>
                     <span class="check-icon">✓</span>
-                    <span>오늘 밤 즉시 만남 가능</span>
+                    <span><strong>오늘 밤 즉시 만남</strong> - 100% 무료</span>
+                    <span class="free-badge">FREE</span>
                 </li>
                 <li>
                     <span class="check-icon">✓</span>
-                    <span>100% 실제 회원 인증</span>
+                    <span><strong>실제 회원 인증</strong> - 100% 무료</span>
+                    <span class="free-badge">FREE</span>
                 </li>
                 <li>
                     <span class="check-icon">✓</span>
-                    <span>완벽한 익명성 보장</span>
+                    <span><strong>완벽한 익명성</strong> - 100% 무료</span>
+                    <span class="free-badge">FREE</span>
                 </li>
                 <li>
                     <span class="check-icon">✓</span>
-                    <span>프리미엄 매칭 서비스</span>
+                    <span><strong>프리미엄 매칭</strong> - 100% 무료</span>
+                    <span class="free-badge">FREE</span>
                 </li>
                 <li>
                     <span class="check-icon">✓</span>
-                    <span>24 시간 고객 지원</span>
+                    <span><strong>24 시간 고객 지원</strong> - 100% 무료</span>
+                    <span class="free-badge">FREE</span>
                 </li>
             </ul>
         </div>
 
         <!-- 照片画廊 -->
         <div class="section">
-            <h2 class="section-title">💕 인기 회원</h2>
+            <h2 class="section-title">💕 인기 무료 회원</h2>
             <div class="gallery">
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl1.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">서연</div>
-                        <div class="gallery-meta">22 세 · 서울</div>
+                        <div class="gallery-meta">22 세 · 서울 · 무료</div>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl2.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">민지</div>
-                        <div class="gallery-meta">21 세 · 서울</div>
+                        <div class="gallery-meta">21 세 · 서울 · 무료</div>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl3.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">지우</div>
-                        <div class="gallery-meta">23 세 · 부산</div>
+                        <div class="gallery-meta">23 세 · 부산 · 무료</div>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl4.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">하은</div>
-                        <div class="gallery-meta">20 세 · 제주</div>
+                        <div class="gallery-meta">20 세 · 제주 · 무료</div>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl5.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">수아</div>
-                        <div class="gallery-meta">22 세 · 서울</div>
+                        <div class="gallery-meta">22 세 · 서울 · 무료</div>
                     </div>
                 </div>
-                <div class="gallery-card">
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl6.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">유나</div>
-                        <div class="gallery-meta">23 세 · 부산</div>
+                        <div class="gallery-meta">23 세 · 부산 · 무료</div>
                     </div>
                 </div>
             </div>
@@ -316,27 +431,31 @@
 
         <!-- CTA 区域 -->
         <div class="cta-section">
-            <h2 class="cta-title">🎁 지금 가입하면 특별 혜택!</h2>
-            <p class="cta-subtitle">오늘 밤 새로운 만남을 시작하세요</p>
+            <h2 class="cta-title">🎁 지금 가입하면 100% 무료!</h2>
+            <p class="cta-subtitle">오늘 밤 새로운 만남을 무료로 시작하세요</p>
             
             <div class="countdown">
                 <div class="countdown-number" id="remaining">23</div>
-                <div class="countdown-label">명 남았어요 (총 50 명)</div>
+                <div class="countdown-label">명 남았어요 (총 50 명) - 100% 무료</div>
             </div>
             
-            <a href="https://open.kakao.com/o/sample" class="cta-button">KakaoTalk 으로 연락하기 →</a>
+            <a href="https://open.kakao.com/o/sample" class="cta-button">💬 KakaoTalk 으로 연락하기 →</a>
             
-            <p style="margin-top: 15px; font-size: 11px; opacity: 0.8;">
-                ⚠️ 알림: 성인 전용 서비스이며, 모든 이용자는 자발적으로 참여합니다.
+            <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
+                ⚠️ 알림: 100% 무료 성인 전용 서비스이며, 모든 이용자는 자발적으로 참여합니다.
             </p>
         </div>
 
         <!-- 页脚 -->
         <div class="footer">
             <p>© 2026 LoveMe. All rights reserved.</p>
-            <p style="margin-top: 8px;">
-                본 서비스는 성인 (18+) 전용이며, 모든 만남은 자발적으로 이루어집니다.<br>
+            <p style="margin-top: 10px;">
+                본 서비스는 성인 (18+) 전용이며, 100% 무료입니다.<br>
+                모든 만남은 자발적으로 이루어집니다.<br>
                 현지 법률을 준수하고 서로의 경계를 존중해주세요.
+            </p>
+            <p style="margin-top: 15px; color: rgba(255, 255, 255, 0.5);">
+                🔒 100% 무료 · 개인정보 안전 · 언제든 탈퇴 가능
             </p>
         </div>
     </div>
@@ -346,14 +465,14 @@
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
-            heart.textContent = ['💕', '💖', '💗', '💓', '💞', '❤️'][Math.floor(Math.random() * 6)];
+            heart.textContent = ['💕', '💖', '💗', '💓', '💞', '❤️', '🔥'][Math.floor(Math.random() * 7)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
             heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 18000);
         }
-        setInterval(createHeart, 500);
+        setInterval(createHeart, 400);
 
         // 倒计时效果
         let remaining = 23;

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoveMe - 오늘 밤 특별한 만남</title>
     <style>
-        @keyframes floatUp { 
+        @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
             50% { opacity: 0.8; }
             100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
         }
-        @keyframes pulse { 
-            0%, 100% { transform: scale(1); } 
-            50% { transform: scale(1.08); } 
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
         }
         @keyframes glow {
             0%, 100% { box-shadow: 0 0 40px rgba(255, 107, 157, 0.4), 0 0 60px rgba(255, 143, 163, 0.3); }
@@ -25,7 +25,7 @@
             75% { transform: scale(1.15); }
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
             background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
@@ -141,19 +141,19 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(255, 143, 163, 0.1);
         }
         .stat-item { text-align: center; padding: 0 12px; flex: 1; }
-        .stat-number { 
-            display: block; 
-            font-size: 26px; 
-            font-weight: 900; 
-            color: #fff; 
+        .stat-number {
+            display: block;
+            font-size: 26px;
+            font-weight: 900;
+            color: #fff;
             letter-spacing: -0.5px;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
-        .stat-label { 
-            display: block; 
-            font-size: 11px; 
-            color: rgba(255, 255, 255, 0.9); 
-            margin-top: 5px; 
+        .stat-label {
+            display: block;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 5px;
             font-weight: 500;
         }
         .section {
@@ -332,14 +332,13 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
-
     </style>
 </head>
 <body>
     <div id="hearts-container"></div>
-    
+
     <div class="container">
-        <!-- 头部区域 -->
+
         <div class="header">
             <div class="profile-container">
                 <img src="assets/images/main-profile.jpg" class="profile-img" alt="Profile" onclick="window.location.href='https://open.kakao.com/o/sample'">
@@ -354,7 +353,7 @@
                     🔥 현재 <strong id="online-count">0 명</strong> 온라인
                 </span>
             </div>
-            
+
             <div class="stats-box">
                 <div class="stat-item">
                     <span class="stat-number">50,000+</span>
@@ -371,7 +370,7 @@
             </div>
         </div>
 
-        <!-- 特色服务 -->
+
         <div class="section">
             <h2 class="section-title">🔥 특별 서비스</h2>
             <ul class="feature-list">
@@ -398,7 +397,7 @@
             </ul>
         </div>
 
-        <!-- 照片画廊 -->
+
         <div class="section">
             <h2 class="section-title">💕 인기 회원</h2>
             <div class="gallery">
@@ -447,24 +446,24 @@
             </div>
         </div>
 
-        <!-- CTA 区域 -->
+
         <div class="cta-section">
             <h2 class="cta-title">🎁 지금 시작하세요!</h2>
             <p class="cta-subtitle">오늘 밤 새로운 만남을 시작하세요</p>
-            
+
             <div class="countdown">
                 <div class="countdown-number" id="remaining">23</div>
                 <div class="countdown-label">명 남았어요 (총 50 명)</div>
             </div>
-            
+
             <a href="https://open.kakao.com/o/sample" class="cta-button">💬 숫자 7 을 보내고 새로운 인연을 만나보세요 ➡️</a>
-            
+
             <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
                 ⚠️ 알림: 성인 전용 서비스이며, 모든 이용자는 자발적으로 참여합니다.
             </p>
         </div>
 
-        <!-- 页脚 -->
+
         <div class="footer">
             <p>© 2026 LoveMe. All rights reserved.</p>
             <p style="margin-top: 10px;">
@@ -486,7 +485,7 @@
             localStorage.removeItem('remainingData');
             console.log('缓存已清除，请刷新页面');
         }
-        
+
         // 飘心动画
         function createHeart() {
             const heart = document.createElement('div');
@@ -509,33 +508,33 @@
             };
             localStorage.setItem('onlineData', JSON.stringify(onlineData));
         }
-        
+
         const onlineCounter = document.getElementById('online-count');
-        
+
         function formatNumber(num) {
             return Math.floor(num).toLocaleString('ko-KR');
         }
-        
+
         // 立即显示初始值
         onlineCounter.textContent = formatNumber(onlineData.count) + '명';
-        
+
         function updateOnlineCount() {
             // 随机变化：+30 到 +80 或 -20 到 -60
             const isIncrease = Math.random() > 0.45; // 55% 概率增加
-            const change = isIncrease 
+            const change = isIncrease
                 ? Math.floor(Math.random() * 51) + 30  // +30 到 +80
                 : -(Math.floor(Math.random() * 41) + 20); // -20 到 -60
-            
+
             onlineData.count += change;
-            
+
             // 限制在 1200-2000 范围
             onlineData.count = Math.min(2000, Math.max(1200, onlineData.count));
             onlineData.timestamp = Date.now();
-            
+
             localStorage.setItem('onlineData', JSON.stringify(onlineData));
             onlineCounter.textContent = formatNumber(onlineData.count) + '명';
         }
-        
+
         // 每 3-9 秒随机更新一次
         function scheduleNextUpdate() {
             const delay = Math.random() * 6000 + 3000; // 3-9 秒
@@ -555,24 +554,24 @@
             };
             localStorage.setItem('remainingData', JSON.stringify(remainingData));
         }
-        
+
         const counter = document.getElementById('remaining');
-        
+
         // 立即显示初始值
         counter.textContent = remainingData.count;
-        
+
         function updateRemaining() {
             // 每次减少 1 人
             remainingData.count -= 1;
-            
+
             // 限制在 9-49 范围
             remainingData.count = Math.max(9, Math.min(49, remainingData.count));
             remainingData.timestamp = Date.now();
-            
+
             localStorage.setItem('remainingData', JSON.stringify(remainingData));
             counter.textContent = Math.floor(remainingData.count);
         }
-        
+
         // 每 3-9 秒随机更新一次
         function scheduleNextRemaining() {
             const delay = Math.random() * 6000 + 3000; // 3-9 秒

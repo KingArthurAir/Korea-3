@@ -470,6 +470,14 @@
     </div>
 
     <script>
+        // 清除缓存参数 (用于测试)
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('reset') === '1') {
+            localStorage.removeItem('onlineData');
+            localStorage.removeItem('remainingData');
+            console.log('缓存已清除，请刷新页面');
+        }
+        
         // 飘心动画
         function createHeart() {
             const heart = document.createElement('div');

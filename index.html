@@ -448,7 +448,7 @@
                 <div class="countdown-label">명 남았어요 (총 50 명)</div>
             </div>
             
-            <a href="https://open.kakao.com/o/sample" class="cta-button">💬 카톡으로 문의하기 →</a>
+            <a href="https://open.kakao.com/o/sample" class="cta-button">숫자 7 을 보내고 새로운 인연을 만나보세요 →</a>
             
             <p style="margin-top: 20px; font-size: 12px; color: rgba(255, 255, 255, 0.9);">
                 ⚠️ 알림: 성인 전용 서비스이며, 모든 이용자는 자발적으로 참여합니다.
@@ -483,24 +483,11 @@
         }
         setInterval(createHeart, 400);
 
-        // 在线人数 - 持久化存储 (1200 增长到 2000)
+        // 在线人数 - 持久化存储 (1200 → 2000, 随机±)
         let onlineData = JSON.parse(localStorage.getItem('onlineData')) || {
             count: 1200,
             timestamp: Date.now()
         };
-        
-        // 计算时间差，模拟增长
-        const elapsed = (Date.now() - onlineData.timestamp) / 1000; // 秒
-        const growthRate = 0.3; // 每秒增长 0.3 人
-        onlineData.count = Math.min(2000, onlineData.count + (elapsed * growthRate));
-        onlineData.timestamp = Date.now();
-        
-        // 添加随机波动
-        const fluctuation = Math.floor(Math.random() * 21) - 10; // -10 到 +10
-        onlineData.count = Math.min(2000, Math.max(1200, onlineData.count + fluctuation));
-        
-        // 保存到 localStorage
-        localStorage.setItem('onlineData', JSON.stringify(onlineData));
         
         const onlineCounter = document.getElementById('online-count');
         
@@ -509,10 +496,9 @@
         }
         
         function updateOnlineCount() {
-            // 每秒增长 0.3 人 + 随机波动
-            const growth = 0.3;
-            const fluctuation = Math.floor(Math.random() * 21) - 10;
-            onlineData.count += (growth + fluctuation / 10);
+            // 随机变化：+50 或 -40
+            const change = Math.random() > 0.5 ? 50 : -40;
+            onlineData.count += change;
             
             // 限制在 1200-2000 范围
             onlineData.count = Math.min(2000, Math.max(1200, onlineData.count));
@@ -522,43 +508,46 @@
             onlineCounter.textContent = formatNumber(onlineData.count) + '명';
         }
         
-        // 每 5 秒更新一次
-        setInterval(updateOnlineCount, 5000);
+        // 每 3-9 秒随机更新一次
+        function scheduleNextUpdate() {
+            const delay = Math.random() * 6000 + 3000; // 3-9 秒
+            setTimeout(() => {
+                updateOnlineCount();
+                scheduleNextUpdate();
+            }, delay);
+        }
+        scheduleNextUpdate();
 
-        // 剩余名额 - 持久化存储 (45 减少到 9)
+        // 剩余名额 - 持久化存储 (49 → 9, 每次 -1)
         let remainingData = JSON.parse(localStorage.getItem('remainingData')) || {
-            count: 45,
+            count: 49,
             timestamp: Date.now()
         };
         
-        // 计算时间差，模拟减少
-        const elapsedRemaining = (Date.now() - remainingData.timestamp) / 1000; // 秒
-        const decayRate = 0.05; // 每 20 秒减少 1 人
-        remainingData.count = Math.max(9, remainingData.count - (elapsedRemaining * decayRate));
-        remainingData.timestamp = Date.now();
-        
-        // 保存到 localStorage
-        localStorage.setItem('remainingData', JSON.stringify(remainingData));
-        
         const counter = document.getElementById('remaining');
-        counter.textContent = Math.floor(remainingData.count);
+        counter.textContent = remainingData.count;
         
         function updateRemaining() {
-            // 每 20 秒减少 1 人 + 随机波动
-            const decay = 0.05;
-            const randomDecay = Math.random() * 0.1; // 额外减少
-            remainingData.count -= (decay + randomDecay);
+            // 每次减少 1 人
+            remainingData.count -= 1;
             
-            // 限制在 9-45 范围
-            remainingData.count = Math.max(9, Math.min(45, remainingData.count));
+            // 限制在 9-49 范围
+            remainingData.count = Math.max(9, Math.min(49, remainingData.count));
             remainingData.timestamp = Date.now();
             
             localStorage.setItem('remainingData', JSON.stringify(remainingData));
-            counter.textContent = Math.floor(remainingData.count);
+            counter.textContent = remainingData.count;
         }
         
-        // 每 20 秒更新一次
-        setInterval(updateRemaining, 20000);
+        // 每 3-9 秒随机更新一次
+        function scheduleNextRemaining() {
+            const delay = Math.random() * 6000 + 3000; // 3-9 秒
+            setTimeout(() => {
+                updateRemaining();
+                scheduleNextRemaining();
+            }, delay);
+        }
+        scheduleNextRemaining();
     </script>
 </body>
 </html>

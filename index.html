@@ -484,7 +484,7 @@
         setInterval(createHeart, 400);
 
         // 在线人数动态波动 (更真实)
-        let onlineCount = 1567;
+        let onlineCount = Math.floor(Math.random() * 800) + 1200; // 1200-2000 随机初始值
         const onlineCounter = document.getElementById('online-count');
         
         function formatNumber(num) {
@@ -506,9 +506,11 @@
         // 每 3-8 秒更新一次在线人数
         setInterval(updateOnlineCount, Math.random() * 5000 + 3000);
 
-        // 倒计时效果
-        let remaining = 23;
+        // 倒计时效果 - 随机初始值
+        let remaining = Math.floor(Math.random() * 26) + 15; // 15-40 随机初始值
         const counter = document.getElementById('remaining');
+        counter.textContent = remaining; // 立即显示初始值
+        
         setInterval(() => {
             if (remaining > 5) {
                 remaining--;

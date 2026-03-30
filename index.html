@@ -960,6 +960,7 @@ body {
   cursor: pointer;
 }
 
+.minimax-link {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -968,9 +969,11 @@ body {
   text-decoration: none;
 }
 
+.minimax-link:visited {
   color: #adadad;
 }
 
+.minimax-link:hover {
   color: #666666;
 }
 
@@ -1014,12 +1017,14 @@ body {
   gap: 12px;
 }
 
+.beian-link {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #171717;
 }
 
+.beian-icon {
   width: 14px;
   height: 14px;
   margin-right: 2px;
@@ -1040,9 +1045,12 @@ body {
     background-color: transparent;
   }
 
+  .minimax-link,
+  .minimax-link:visited {
     color: #666666;
   }
 
+  .minimax-link:hover {
     color: #adadad;
   }
 
@@ -1051,6 +1059,7 @@ body {
     color: #ededed;
   }
 
+  .beian-link,
   .underline-text {
     color: #ededed;
   }
@@ -1064,6 +1073,8 @@ body {
 <div class="inland-security-footer">
   <div class="tooltip-container">
     <div class="trigger-content">
+      <a href="https://www.minimaxi.com/" target="_blank" rel="noreferrer" class="minimax-link">
+        <span>© 2026 MiniMax</span>
       </a>
     </div>
     <div class="tooltip-content">

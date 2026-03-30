@@ -27,7 +27,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Malgun Gothic', sans-serif;
-            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(180deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
             min-height: 100vh;
             color: #fff;
             overflow-x: hidden;
@@ -69,7 +69,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            border: 6px solid #FEE500;
+            border: 4px solid rgba(255, 143, 163, 0.6);
             object-fit: cover;
             box-shadow: 0 0 40px rgba(255, 229, 0, 0.7), 0 0 80px rgba(255, 107, 157, 0.6), 0 0 120px rgba(255, 229, 0, 0.4);
             animation: pulse 2s infinite;
@@ -127,7 +127,9 @@
             white-space: nowrap;
         }
         .stats-box {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(26, 35, 126, 0.8) 100%);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 15px;
             padding: 20px;
             margin: 25px 0;
@@ -154,10 +156,11 @@
             font-weight: 500;
         }
         .section {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #333;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            color: rgba(255, 255, 255, 0.95);
             padding: 25px 20px;
             margin: 20px;
             border-radius: 20px;
@@ -167,7 +170,7 @@
             font-size: 20px;
             font-weight: 800;
             margin-bottom: 18px;
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fb1 100%);
+            background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -177,7 +180,7 @@
         }
         .feature-list li {
             padding: 12px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -224,7 +227,7 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
             padding: 18px 12px 12px;
             color: white;
         }
@@ -239,7 +242,7 @@
             margin-top: 4px;
         }
         .cta-section {
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fb1 100%);
+            background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
             padding: 35px 25px;
             text-align: center;
             margin: 25px 20px;
@@ -295,8 +298,9 @@
             font-weight: 500;
         }
         .cta-button {
-            background: linear-gradient(135deg, #FEE500 0%, #ffeb3b 100%);
-            color: #1a237e;
+            background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             border: none;
             padding: 18px 30px;
             border-radius: 50px;
@@ -306,7 +310,7 @@
             animation: glow 2s infinite;
             display: inline-block;
             text-decoration: none;
-            box-shadow: 0 10px 40px rgba(255, 229, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(255, 143, 163, 0.4);
             position: relative;
             transition: all 0.3s ease;
             max-width: 90%;
@@ -317,7 +321,9 @@
             transform: scale(1.08);
         }
         .footer {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 25px 20px;
             text-align: center;
             font-size: 11px;

@@ -301,18 +301,27 @@
         .cta-button {
             background: linear-gradient(135deg, #FEE500 0%, #ffeb3b 100%);
             color: #1a237e;
-            font-weight: 800;
+            font-weight: 700;
             border: none;
-            padding: 18px 45px;
+            padding: 16px 30px;
             border-radius: 50px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
             animation: glow 2s infinite;
-            display: inline-block;
+            display: block;
             text-decoration: none;
             box-shadow: 0 10px 40px rgba(254, 229, 0, 0.5);
-            white-space: nowrap;
-            line-height: 1.6;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 480px) {
+            .cta-button {
+                padding: 14px 20px;
+                font-size: 14px;
+                width: 100%;
+                box-sizing: border-box;
+            }
         }
         .cta-button:hover {
             transform: scale(1.08);

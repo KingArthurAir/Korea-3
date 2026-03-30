@@ -76,15 +76,19 @@
             cursor: pointer;
         }
         .verified-badge {
-            background: linear-gradient(135deg, rgba(255, 143, 163, 0.8) 0%, rgba(255, 179, 193, 0.9) 100%);
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
             color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 800;
-            border: 2px solid #1a237e;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+            padding: 6px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 2px solid rgba(255, 143, 163, 0.5);
+            box-shadow: 0 0 20px rgba(255, 143, 163, 0.6), 0 4px 15px rgba(255, 107, 157, 0.4);
             display: inline-block;
+            animation: pulse 2s infinite;
         }
         .site-title {
             font-size: 36px;
@@ -301,20 +305,16 @@
             color: #1a237e;
             font-weight: 800;
             border: none;
-            padding: 35px 90px;
+            padding: 18px 45px;
             border-radius: 50px;
-            font-size: 20px;
-            font-weight: 800;
+            font-size: 16px;
             cursor: pointer;
             animation: glow 2s infinite;
             display: inline-block;
             text-decoration: none;
             box-shadow: 0 10px 40px rgba(254, 229, 0, 0.5);
-            position: relative;
-            transition: all 0.3s ease;
-            max-width: 90%;
-            word-break: keep-all;
-            line-height: 1.5;
+            white-space: nowrap;
+            line-height: 1.6;
         }
         .cta-button:hover {
             transform: scale(1.08);

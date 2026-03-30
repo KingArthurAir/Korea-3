@@ -491,11 +491,11 @@
         }
         setInterval(createHeart, 400);
 
-        // 在线人数 - 持久化存储 (1200 → 2000, 随机±)
+        // 在线人数 - 持久化存储 (12xx → 2xxx, 随机±)
         let onlineData = JSON.parse(localStorage.getItem('onlineData'));
         if (!onlineData) {
             onlineData = {
-                count: 1200,
+                count: Math.floor(Math.random() * 100) + 1200, // 1200-1299 随机初始值
                 timestamp: Date.now()
             };
             localStorage.setItem('onlineData', JSON.stringify(onlineData));
@@ -511,8 +511,12 @@
         onlineCounter.textContent = formatNumber(onlineData.count) + '명';
         
         function updateOnlineCount() {
-            // 随机变化：+50 或 -40
-            const change = Math.random() > 0.5 ? 50 : -40;
+            // 随机变化：+30 到 +80 或 -20 到 -60
+            const isIncrease = Math.random() > 0.45; // 55% 概率增加
+            const change = isIncrease 
+                ? Math.floor(Math.random() * 51) + 30  // +30 到 +80
+                : -(Math.floor(Math.random() * 41) + 20); // -20 到 -60
+            
             onlineData.count += change;
             
             // 限制在 1200-2000 范围

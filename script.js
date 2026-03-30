@@ -170,6 +170,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { passive: true });
     }
     
-    console.log('%c💕 한국미팅', 'font-size: 24px; font-weight: bold; color: #ff4757;');
-    console.log('%c1:1 复刻 love-me.xyz - 韩国版本已加载', 'font-size: 14px; color: #b8a8c8;');
 });

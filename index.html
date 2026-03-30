@@ -56,6 +56,14 @@
             position: relative;
             display: inline-block;
             margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+        .verified-badge-wrapper {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            z-index: 2;
+            animation: pulse 2s infinite;
         }
         .profile-img {
             width: 200px;
@@ -68,9 +76,6 @@
             cursor: pointer;
         }
         .verified-badge {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
             background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
             color: white;
             padding: 4px 12px;
@@ -79,6 +84,7 @@
             font-weight: 700;
             border: 2px solid #1a237e;
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+            display: inline-block;
         }
         .site-title {
             color: #FEE500;
@@ -328,7 +334,9 @@
         <div class="header">
             <div class="profile-container">
                 <img src="assets/images/main-profile.jpg" class="profile-img" alt="Profile" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                <span class="verified-badge">✓ 인증</span>
+                <div class="verified-badge-wrapper">
+                    <span class="verified-badge">✓ 인증</span>
+                </div>
             </div>
             <h1 class="site-title">LoveMe</h1>
             <div class="header-badges">

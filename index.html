@@ -342,7 +342,7 @@
             <div class="header-badges">
                 <span class="site-tagline">💕 프리미엄 데이트 커뮤니티</span>
                 <span class="online-count">
-                    🔥 현재 <strong id="online-count">0 명</strong> 온라인
+                    🔥 현재 <strong id="online-count">1,567 명</strong> 온라인
                 </span>
             </div>
             
@@ -396,43 +396,43 @@
                 <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
                     <img src="assets/images/girl1.jpg" alt="Profile">
                     <div class="gallery-info">
+                        <div class="gallery-name">하은</div>
+                        <div class="gallery-meta">20 세 · 제주</div>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
+                    <img src="assets/images/girl2.jpg" alt="Profile">
+                    <div class="gallery-info">
+                        <div class="gallery-name">유나</div>
+                        <div class="gallery-meta">23 세 · 부산</div>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
+                    <img src="assets/images/girl3.jpg" alt="Profile">
+                    <div class="gallery-info">
                         <div class="gallery-name">서연</div>
                         <div class="gallery-meta">22 세 · 서울</div>
                     </div>
                 </div>
                 <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                    <img src="assets/images/girl2.jpg" alt="Profile">
+                    <img src="assets/images/girl4.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">민지</div>
                         <div class="gallery-meta">21 세 · 서울</div>
                     </div>
                 </div>
                 <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                    <img src="assets/images/girl3.jpg" alt="Profile">
+                    <img src="assets/images/girl5.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">지우</div>
                         <div class="gallery-meta">23 세 · 부산</div>
                     </div>
                 </div>
                 <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                    <img src="assets/images/girl4.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">하은</div>
-                        <div class="gallery-meta">20 세 · 제주</div>
-                    </div>
-                </div>
-                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                    <img src="assets/images/girl5.jpg" alt="Profile">
+                    <img src="assets/images/girl6.jpg" alt="Profile">
                     <div class="gallery-info">
                         <div class="gallery-name">수아</div>
                         <div class="gallery-meta">22 세 · 서울</div>
-                    </div>
-                </div>
-                <div class="gallery-card" onclick="window.location.href='https://open.kakao.com/o/sample'">
-                    <img src="assets/images/girl6.jpg" alt="Profile">
-                    <div class="gallery-info">
-                        <div class="gallery-name">유나</div>
-                        <div class="gallery-meta">23 세 · 부산</div>
                     </div>
                 </div>
             </div>
@@ -491,11 +491,11 @@
         }
         setInterval(createHeart, 400);
 
-        // 在线人数 - 持久化存储 (12xx → 2xxx, 随机±)
+        // 在线人数 - 持久化存储 (1200 → 2000, 随机±)
         let onlineData = JSON.parse(localStorage.getItem('onlineData'));
         if (!onlineData) {
             onlineData = {
-                count: Math.floor(Math.random() * 100) + 1200, // 1200-1299 随机初始值
+                count: 1200,
                 timestamp: Date.now()
             };
             localStorage.setItem('onlineData', JSON.stringify(onlineData));
@@ -507,16 +507,9 @@
             return Math.floor(num).toLocaleString('ko-KR');
         }
         
-        // 立即显示初始值
-        onlineCounter.textContent = formatNumber(onlineData.count) + '명';
-        
         function updateOnlineCount() {
-            // 随机变化：+30 到 +80 或 -20 到 -60
-            const isIncrease = Math.random() > 0.45; // 55% 概率增加
-            const change = isIncrease 
-                ? Math.floor(Math.random() * 51) + 30  // +30 到 +80
-                : -(Math.floor(Math.random() * 41) + 20); // -20 到 -60
-            
+            // 随机变化：+50 或 -40
+            const change = Math.random() > 0.5 ? 50 : -40;
             onlineData.count += change;
             
             // 限制在 1200-2000 范围
@@ -548,9 +541,7 @@
         }
         
         const counter = document.getElementById('remaining');
-        
-        // 立即显示初始值
-        counter.textContent = remainingData.count;
+        counter.textContent = Math.floor(remainingData.count);
         
         function updateRemaining() {
             // 每次减少 1 人

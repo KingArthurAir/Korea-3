@@ -507,6 +507,9 @@
             return Math.floor(num).toLocaleString('ko-KR');
         }
         
+        // 立即显示初始值
+        onlineCounter.textContent = formatNumber(onlineData.count) + '명';
+        
         function updateOnlineCount() {
             // 随机变化：+50 或 -40
             const change = Math.random() > 0.5 ? 50 : -40;
@@ -541,7 +544,9 @@
         }
         
         const counter = document.getElementById('remaining');
-        counter.textContent = Math.floor(remainingData.count);
+        
+        // 立即显示初始值
+        counter.textContent = remainingData.count;
         
         function updateRemaining() {
             // 每次减少 1 人

@@ -15,8 +15,8 @@
             50% { transform: scale(1.08); } 
         }
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 214, 0, 0.6), 0 0 40px rgba(255, 107, 157, 0.4); }
-            50% { box-shadow: 0 0 40px rgba(255, 214, 0, 0.9), 0 0 80px rgba(255, 107, 157, 0.7); }
+            0%, 100% { box-shadow: 0 0 40px rgba(255, 107, 157, 0.4), 0 0 60px rgba(255, 143, 163, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(255, 107, 157, 0.6), 0 0 80px rgba(255, 143, 163, 0.4); }
         }
         @keyframes heartbeat {
             0%, 100% { transform: scale(1); }
@@ -116,18 +116,18 @@
         }
         .online-count {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 143, 163, 0.1);
             color: rgba(255, 255, 255, 0.8);
             padding: 8px 20px;
             border-radius: 25px;
             font-size: 13px;
             font-weight: 700;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 143, 163, 0.1);
+            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.2);
             white-space: nowrap;
         }
         .stats-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 143, 163, 0.1);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 15px;
@@ -136,7 +136,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            border: 1px solid rgba(255, 229, 0, 0.4);
+            border: 1px solid rgba(255, 179, 193, 0.2);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), inset 0 0 30px rgba(255, 229, 0, 0.1);
         }
         .stat-item { text-align: center; padding: 0 12px; flex: 1; }
@@ -146,7 +146,7 @@
             font-weight: 900; 
             color: #fff; 
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .stat-label { 
             display: block; 
@@ -234,7 +234,7 @@
         .gallery-name {
             font-size: 16px;
             font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
         }
         .gallery-meta {
             font-size: 12px;
@@ -276,12 +276,12 @@
             position: relative;
         }
         .countdown {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 143, 163, 0.1);
             border-radius: 15px;
             padding: 18px;
             margin: 25px 0;
             text-align: center;
-            border: 1px solid rgba(255, 143, 163, 0.2);
+            border: 1px solid rgba(255, 179, 193, 0.2);
             position: relative;
         }
         .countdown-number {
@@ -298,9 +298,10 @@
             font-weight: 500;
         }
         .cta-button {
-            background: linear-gradient(135deg, #ff6b9d 0%, #ff8fa3 100%);
+            background: linear-gradient(135deg, #ff8fa3 0%, #ffb3c1 100%);
             color: #fff;
-            font-weight: 700;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             border: none;
             padding: 18px 30px;
             border-radius: 50px;
@@ -310,7 +311,7 @@
             animation: glow 2s infinite;
             display: inline-block;
             text-decoration: none;
-            box-shadow: 0 10px 40px rgba(255, 107, 157, 0.5);
+            box-shadow: 0 10px 35px rgba(255, 143, 163, 0.4);
             position: relative;
             transition: all 0.3s ease;
             max-width: 90%;

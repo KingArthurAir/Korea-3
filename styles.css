@@ -471,35 +471,12 @@ body {
     gap: 2rem;
 }
 
-.footer-logo {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.footer-desc {
+.footer-copyright {
+    text-align: center;
     color: #b8a8c8;
     font-size: 0.85rem;
-    max-width: 300px;
-    line-height: 1.6;
-}
-
-.footer-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.footer-link {
-    color: #b8a8c8;
-    text-decoration: none;
-    font-size: 0.85rem;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: #ff4757;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .legal-warning {

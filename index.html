@@ -483,40 +483,82 @@
         }
         setInterval(createHeart, 400);
 
-        // 在线人数动态波动 (更真实)
-        let onlineCount = Math.floor(Math.random() * 800) + 1200; // 1200-2000 随机初始值
+        // 在线人数 - 持久化存储 (1200 增长到 2000)
+        let onlineData = JSON.parse(localStorage.getItem('onlineData')) || {
+            count: 1200,
+            timestamp: Date.now()
+        };
+        
+        // 计算时间差，模拟增长
+        const elapsed = (Date.now() - onlineData.timestamp) / 1000; // 秒
+        const growthRate = 0.3; // 每秒增长 0.3 人
+        onlineData.count = Math.min(2000, onlineData.count + (elapsed * growthRate));
+        onlineData.timestamp = Date.now();
+        
+        // 添加随机波动
+        const fluctuation = Math.floor(Math.random() * 21) - 10; // -10 到 +10
+        onlineData.count = Math.min(2000, Math.max(1200, onlineData.count + fluctuation));
+        
+        // 保存到 localStorage
+        localStorage.setItem('onlineData', JSON.stringify(onlineData));
+        
         const onlineCounter = document.getElementById('online-count');
         
         function formatNumber(num) {
-            return num.toLocaleString('ko-KR');
+            return Math.floor(num).toLocaleString('ko-KR');
         }
         
         function updateOnlineCount() {
-            // 随机波动：-50 到 +80 之间，模拟真实用户进出
-            const change = Math.floor(Math.random() * 131) - 50;
-            onlineCount += change;
+            // 每秒增长 0.3 人 + 随机波动
+            const growth = 0.3;
+            const fluctuation = Math.floor(Math.random() * 21) - 10;
+            onlineData.count += (growth + fluctuation / 10);
             
-            // 保持在合理范围 (1200-2000)
-            if (onlineCount < 1200) onlineCount = 1200 + Math.floor(Math.random() * 100);
-            if (onlineCount > 2000) onlineCount = 2000 - Math.floor(Math.random() * 100);
+            // 限制在 1200-2000 范围
+            onlineData.count = Math.min(2000, Math.max(1200, onlineData.count));
+            onlineData.timestamp = Date.now();
             
-            onlineCounter.textContent = formatNumber(onlineCount) + '명';
+            localStorage.setItem('onlineData', JSON.stringify(onlineData));
+            onlineCounter.textContent = formatNumber(onlineData.count) + '명';
         }
         
-        // 每 3-8 秒更新一次在线人数
-        setInterval(updateOnlineCount, Math.random() * 5000 + 3000);
+        // 每 5 秒更新一次
+        setInterval(updateOnlineCount, 5000);
 
-        // 倒计时效果 - 随机初始值
-        let remaining = Math.floor(Math.random() * 26) + 15; // 15-40 随机初始值
-        const counter = document.getElementById('remaining');
-        counter.textContent = remaining; // 立即显示初始值
+        // 剩余名额 - 持久化存储 (45 减少到 9)
+        let remainingData = JSON.parse(localStorage.getItem('remainingData')) || {
+            count: 45,
+            timestamp: Date.now()
+        };
         
-        setInterval(() => {
-            if (remaining > 5) {
-                remaining--;
-                counter.textContent = remaining;
-            }
-        }, 30000);
+        // 计算时间差，模拟减少
+        const elapsedRemaining = (Date.now() - remainingData.timestamp) / 1000; // 秒
+        const decayRate = 0.05; // 每 20 秒减少 1 人
+        remainingData.count = Math.max(9, remainingData.count - (elapsedRemaining * decayRate));
+        remainingData.timestamp = Date.now();
+        
+        // 保存到 localStorage
+        localStorage.setItem('remainingData', JSON.stringify(remainingData));
+        
+        const counter = document.getElementById('remaining');
+        counter.textContent = Math.floor(remainingData.count);
+        
+        function updateRemaining() {
+            // 每 20 秒减少 1 人 + 随机波动
+            const decay = 0.05;
+            const randomDecay = Math.random() * 0.1; // 额外减少
+            remainingData.count -= (decay + randomDecay);
+            
+            // 限制在 9-45 范围
+            remainingData.count = Math.max(9, Math.min(45, remainingData.count));
+            remainingData.timestamp = Date.now();
+            
+            localStorage.setItem('remainingData', JSON.stringify(remainingData));
+            counter.textContent = Math.floor(remainingData.count);
+        }
+        
+        // 每 20 秒更新一次
+        setInterval(updateRemaining, 20000);
     </script>
 </body>
 </html>
